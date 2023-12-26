@@ -11,35 +11,35 @@ class Node:
   def __init__(self, op, val=None, rchild=None, lchild=None):
     self._op = op
     self._val = val
-    self.lchild = lchild
-    self.rchild = rchild
+    self._lchild = lchild
+    self._rchild = rchild
 
   def eval(self):
     if self._val is not None:
       return self._val
     assert (
-        self.lchild is not None and self.rchild is not None
+        self._lchild is not None and self._rchild is not None
     ), 'f{self._val, self._op, self._lchild, self._rchild}'
 
-    l, r = self.lchild.eval(), self.rchild.eval()
+    l, r = self._lchild.eval(), self._rchild.eval()
     if self._op == '*':
       return l * r
     elif self._op == '/':
-      return l // r
+      return l / r
     elif self._op == '+':
       return l + r
     elif self._op == '-':
       return l - r
 
   def print(self, n=0):
-    if self.rchild:
-      self.rchild.print(n + 4)
+    if self._rchild:
+      self._rchild.print(n + 4)
     if self._op:
       print(' ' * n + self._op + ' ' * 2)
     if self._val is not None:
       print(' ' * n + str(self._val) + ' ' * 2)
-    if self.lchild:
-      self.lchild.print(n + 4)
+    if self._lchild:
+      self._lchild.print(n + 4)
 
 
 class Calculator:
