@@ -25,7 +25,7 @@ class Node:
     if self._op == '*':
       return l * r
     elif self._op == '/':
-      return l / r
+      return l // r
     elif self._op == '+':
       return l + r
     elif self._op == '-':
@@ -98,6 +98,11 @@ class Calculator:
           valS.append(Node(None, 0, None, None))  # turn -2 to 0-2
         opS.append(t)
       elif t == '/' or t == '*':
+        while len(opS) > 0 and opS[-1] in ('*', '/'):
+          op = opS.pop()
+          r = valS.pop()
+          l = valS.pop()
+          valS.append(Node(op, None, r, l))
         opS.append(t)
       else:
         # value
