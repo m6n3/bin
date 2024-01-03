@@ -32,6 +32,5 @@ sub process {
       }
     }
     close $fh;
-}
-
+  }
 }
