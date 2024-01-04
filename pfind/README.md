@@ -4,6 +4,6 @@
 ## Usage
 
 ```shell
-pfind [-v] "filename_regex" "content_regex"
+pfind.pl [-v] "filename_regex" "content_regex"
 ```
 
