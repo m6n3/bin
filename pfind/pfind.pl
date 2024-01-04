@@ -15,7 +15,7 @@ my $fpattern = shift @ARGV;
 my $cpattern = shift @ARGV;
 
 unless ($fpattern and $cpattern) {
-  print "Usage: $0 [-v] <file pattern> <content pattern>\n";
+  die "Usage: $0 [-v] <file pattern> <content pattern>\n";
 }
 
 find({ wanted => \&process, no_chdir => 1}, '.');
